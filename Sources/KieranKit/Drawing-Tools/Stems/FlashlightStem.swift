@@ -6,9 +6,8 @@
 //
 
 import SwiftUI
-import Shapes
 
-struct BeerGlassStem<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
+struct FlashlightStem: View {
     var width: CGFloat = 100
     private let standardWidth: CGFloat = 100
     private var scaleFactor: CGFloat {
@@ -16,49 +15,45 @@ struct BeerGlassStem<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
     private let standardHeight: CGFloat = 150
     private let strokeStyle: StrokeStyle
-    private let fill: Fill
-    private let stroke: Stroke
+    private let color: Color
     
-    init(width: CGFloat = 100) where Fill == Color, Stroke == Color {
+    init(width: CGFloat = 100) {
         self.width = width
         self.strokeStyle = StrokeStyle(lineWidth: 4, lineJoin: .round)
-        self.fill = Color(white: 0.1)
-        self.stroke = Color(white: 0.1)
+        self.color = Color(white: 0.1)
     }
     
     init(width: CGFloat = 100,
-         fill: Fill,
-         stroke: Stroke,
+         color: Color = Color(white: 0.1),
          strokeStyle: StrokeStyle = StrokeStyle(lineWidth: 4, lineJoin: .round)) {
         self.width = width
         self.strokeStyle = strokeStyle
-        self.fill = fill
-        self.stroke = stroke
+        self.color = color
     }
     
     var body: some View {
-        BeerGlassShape()
-            .fill(fill)
+        FlashlightShape()
+            .fill(color)
             .overlay(
-                BeerGlassShape()
-                    .strokeBorder(stroke, style: strokeStyle)
+                FlashlightShape()
+                    .strokeBorder(color, style: strokeStyle)
             )
             .frame(width: width, height: scaleFactor*standardHeight)
     }
 }
 
-extension BeerGlassStem: DrawingToolComponent {
+extension FlashlightStem: DrawingToolComponent {
     var terminalWidth: CGFloat {
-        width*0.6
+        0.6*width
     }
 }
 
-struct BeerGlassStem_Previews: PreviewProvider {
+struct FlashlightStem_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            BeerGlassStem()
-            BeerGlassStem(width: 200)
-            BeerGlassStem(width: 50)
+            FlashlightStem()
+            FlashlightStem(width: 200)
+            FlashlightStem(width: 50)
         }
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Shapes
 
 struct ConcaveStem: View {
     var width: CGFloat = 100

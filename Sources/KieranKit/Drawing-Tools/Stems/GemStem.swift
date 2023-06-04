@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Shapes
 
 struct GemStem: View {
     var width: CGFloat = 90

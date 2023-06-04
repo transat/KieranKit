@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Shapes
 
 struct FineTip: View {
     var color: Color

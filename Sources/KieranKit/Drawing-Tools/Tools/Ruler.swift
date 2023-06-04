@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Shapes 
 
 struct RulerIcon: View {
     var length: CGFloat = 500

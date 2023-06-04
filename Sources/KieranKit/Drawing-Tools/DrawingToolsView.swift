@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DrawingToolsView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -33,8 +33,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DrawingToolsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DrawingToolsView()
     }
 }

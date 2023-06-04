@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Shapes 
 
 struct BulletTip: View {
     var color: Color
